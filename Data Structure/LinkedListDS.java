@@ -1,6 +1,6 @@
 import java.util.Scanner;
 class LinkedList<T>{
-    private Note<T> head;
+    private Note<T> head=null;
     
     public static class Note<T>{
         T data;
@@ -60,6 +60,19 @@ class LinkedList<T>{
         }
         System.out.println("Given value cannot find!");
     }
+    
+    public boolean isEmpty(){
+        if (head==null){
+            return true;
+        } else{
+            return false;
+        }
+    }
+    
+    public void clear(){
+        head=null;
+        System.out.println("Linkedlist cleared successfully");
+    }
 }
 
 public class LinkedListDS
@@ -69,7 +82,7 @@ public class LinkedListDS
 		Scanner sc = new Scanner(System.in);
 		int c, v;
 		while(true){
-		    System.out.println("LinkedList DataType\n1. Add\n2. Display\n3. Search\n4. Delete\n5. exit\n");
+		    System.out.println("LinkedList DataType\n1. Add\n2. Display\n3. Search\n4. Delete\n5. IsEmpty\n6. clear\n7. exit\n");
 		    c = sc.nextInt();
 		    switch(c){
 		        case 1:{
@@ -96,7 +109,19 @@ public class LinkedListDS
 		          ll.delete(v);
 		          break;
 		        }
-		        case 5: sc.close();System.exit(0);
+		        case 5:{
+		            if(ll.isEmpty()==true){
+		                System.out.println("LinkedList is empty");
+		            } else{
+		                System.out.println("LinkedList is not empty");
+		            }
+		            break;
+		        }
+		        case 6:{
+		            ll.clear();
+		            break;
+		        }
+		        case 7: sc.close();System.exit(0);
 		    }
 		}
 	}
